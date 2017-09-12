@@ -74,3 +74,15 @@
   outline: none;
   border-bottom: 5px solid #ccc;
 }
+
+.showing-contacts {
+  text-align: center;
+  margin: 20px 0;
+}
+.showing-contacts button {
+  color: #0abab5;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+}
