@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-
+import escapeRegExp from 'escape-string-regexp'
+import sortBy from 'sort-by'
 class ListContacts extends Component {
   static propTypes = {
     contacts: PropTypes.array.isRequired
@@ -15,8 +16,16 @@ class ListContacts extends Component {
 
   render() {
     const contacts = this.props.contacts
-    let showingContacts = contacts
-    // {console.log(JSON.stringify(showingContacts))}
+    const query = this.state.query
+
+    let showingContacts
+    if (query) {
+      const match = new RegExp(escapeRegExp(query), 'i')
+      showingContacts = contacts.filter((contact) => match.test(contact.name))
+    } else {
+      showingContacts = contacts
+    }
+    showingContacts.sort(sortBy('name'))
 
     return (
       <div>
