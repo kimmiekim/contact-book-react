@@ -24,16 +24,16 @@
 }
 
 .contact-list {
-  width: 100%;
+  width: 50%;
   height: 100px;
   margin: 0;
   padding: 0;
   list-style-type: none;
+  text-align: center;
 }
 
 .contact-list-item {
   padding: 20px 100px;
-  width: 400px;
   background: #f55555;
   display: flex;
   margin: 15px 0;
@@ -60,4 +60,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.search-contact {
+  width: 50%;
+  padding: 20px 20px 20px 60px;
+  /*background-image: url('./icons/search.svg');*/
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 1.2em;
+  font-size: 1.2em;
+  border: 0;
+  outline: none;
+  border-bottom: 5px solid #ccc;
 }
