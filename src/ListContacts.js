@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
+
 class ListContacts extends Component {
   static propTypes = {
     contacts: PropTypes.array.isRequired
@@ -19,9 +21,8 @@ class ListContacts extends Component {
   }
 
   render() {
-    const contacts = this.props.contacts
-    const query = this.state.query
-    const onDeleteContact = this.props.onDeleteContact
+    const { contacts, onDeleteContact } = this.props
+    const { query } = this.state
 
     let showingContacts
     if (query) {
@@ -42,7 +43,8 @@ class ListContacts extends Component {
           value = {this.state.query}
           onChange = {(event) => this.updateQuery(event.target.value)}
           />
-          {JSON.stringify(this.state)}
+
+        <Link to="/create" className="add-contact">+</Link>
 
         {showingContacts.length !== contacts.length && (
           <div className="showing-contacts">

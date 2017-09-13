@@ -27,7 +27,7 @@
   width: 50%;
   height: 100px;
   margin: 0;
-  padding: 0;
+  margin-left: 20%;
   list-style-type: none;
   text-align: center;
 }
@@ -41,8 +41,8 @@
 }
 
 .contact-avatar {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   margin-right: 20px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -99,4 +99,13 @@
   cursor: pointer;
   outline: none;
   background: transparent;
+}
+
+.add-contact {
+  background-color: #f55555;
+  border-radius: 50%;
+  color: white;
+  font-size: 25px;
+  padding: 10px 17px;
+  text-decoration: none;
 }
