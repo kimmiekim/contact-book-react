@@ -32,7 +32,7 @@ class ListContacts extends Component {
       showingContacts = contacts
     }
     showingContacts.sort(sortBy('name'))
-    // {console.log(showingContacts)}
+
 
     return (
       <div>
