@@ -21,6 +21,7 @@ class ListContacts extends Component {
   render() {
     const contacts = this.props.contacts
     const query = this.state.query
+    const onDeleteContact = this.props.onDeleteContact
 
     let showingContacts
     if (query) {
@@ -30,6 +31,7 @@ class ListContacts extends Component {
       showingContacts = contacts
     }
     showingContacts.sort(sortBy('name'))
+    // {console.log(showingContacts)}
 
     return (
       <div>
@@ -42,7 +44,7 @@ class ListContacts extends Component {
           />
           {JSON.stringify(this.state)}
 
-        {showingContacts.length != contacts.length && (
+        {showingContacts.length !== contacts.length && (
           <div className="showing-contacts">
             <span>Now showing {showingContacts.length} of {contacts.length} total</span>
             <button onClick={this.clearQuery}>Show All</button>
@@ -59,6 +61,7 @@ class ListContacts extends Component {
                 <p>{contact.name}</p>
                 <p>{contact.email}</p>
               </div>
+              <button onClick={()=> onDeleteContact(contact)} className="contact-remove">x</button>
             </li>
           ))}
         </ol>

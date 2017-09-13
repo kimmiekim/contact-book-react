@@ -11,14 +11,23 @@ class App extends Component {
   componentDidMount() {
     ContactsAPI.getAll().then((contacts)=> {
       this.setState({contacts : contacts})
-      // {console.log(JSON.stringify(contacts))}
     })
+  }
+
+  removeContact = (contact) => {
+    this.setState((currentState) => ({
+      contacts: currentState.contacts.filter(c => c.id != contact.id)
+    }))
+
+    // ContactsAPI.remove(contact)
   }
 
   render() {
     return (
       <div className="App">
-        <ListContacts contacts={this.state.contacts}/>
+        <ListContacts
+          contacts={this.state.contacts}
+          onDeleteContact={this.removeContact}/>
       </div>
     );
   }
